@@ -12,7 +12,7 @@
         {
             const min = 1;
             const max = 3;
-            const play = Math.floor(Math.random() * (max - min +1)) + min
+            const play = Math.floor(Math.random() * (max - min +1)) + min;
 
             switch (play)
             {
@@ -34,8 +34,8 @@
         function round()
         {
             let computerSelection = computerPlay();
-            let playerSelection = prompt("Select Rock, Paper or Scissors","")
-            playerSelection = playerSelection[0].toUpperCase() + playerSelection.toLowerCase().slice(1)
+            let playerSelection = prompt("Select Rock, Paper or Scissors","");
+            playerSelection = playerSelection[0].toUpperCase() + playerSelection.toLowerCase().slice(1);
 
            switch (playerSelection)
            {
@@ -43,47 +43,75 @@
                    switch (computerSelection)
                    {
                        case "Rock": 
-                       return "It's a tie!"
+                       return "It's a tie!";
                        break;
                        case "Paper": 
-                       return "You lose! Paper beats Rock"
+                       return "You lose! Paper beats Rock";
                        break;
                        case "Scissors": 
-                       return "You win! Rock beats Scissors" 
+                       return "You win! Rock beats Scissors"; 
                    }
                break;
                case "Paper":
                switch (computerSelection)
                    {
                        case "Rock": 
-                       return "You win! Paper beats Rock" 
+                       return "You win! Paper beats Rock" ;
                        break;
                        case "Paper": 
-                       return "It's a tie!"
+                       return "It's a tie!";
                        break;
                        case "Scissors": 
-                       return "You lose! Scissors beat Paper" 
+                       return "You lose! Scissors beat Paper" ;
                    } 
                break;
                case "Scissors": 
                switch (computerSelection)
                    {
                        case "Rock": 
-                       return "You lose! Rock beats Scissors"
+                       return "You lose! Rock beats Scissors";
                        break;
                        case "Paper": 
-                       return "You win! Scissors beat Paper"
+                       return "You win! Scissors beat Paper";
                        break;
                        case "Scissors": 
-                       return "It's a tie!" 
+                       return "It's a tie!"; 
                    }
                break;
                default:
-               return "Please select a valid option" 
+               return "Invalid input"; 
            }
         }
 
-        console.log(round())
-      
+        function game()
+        {
+            
+        let rounds = 0;
+        let playerScore = 0;
+        let computerScore = 0;
+
+        while (rounds<5)
+        {
+            let outcome = round();
+            console.log(outcome);
+
+            if (outcome.includes("win")) playerScore++;
+            else if (outcome.includes("lose")) computerScore++;
+            /*else if (outcome === "Invalid input") rounds--;*/
+
+            rounds++;
+        }
+
+        if (playerScore > computerScore) 
+            console.log(`---You won this game! ${playerScore}-${computerScore}---`);
+        else if (playerScore < computerScore) 
+            console.log(`---You lost this game! ${playerScore}-${computerScore}---`);
+        else
+            console.log(`---This game was a tie! ${playerScore}-${computerScore}---`); 
+
+        }
+
+        game()
+        
     </script>
 </html>
