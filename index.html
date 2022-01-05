@@ -8,6 +8,27 @@
 
     </body>
     <script>
-        console.log("test")
+        function computerPlay()
+        {
+            const min = 1;
+            const max = 3;
+            const play = Math.floor(Math.random() * (max - min +1)) + min
+
+            switch (play)
+            {
+                case 1: 
+                return "Rock"; 
+                break;
+
+                case 2: 
+                return "Paper"; 
+                break;
+
+                case 3: 
+                return "Scissors";
+                break; 
+            }
+        }
+        
     </script>
 </html>
