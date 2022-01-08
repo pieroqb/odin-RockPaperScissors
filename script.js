@@ -103,10 +103,14 @@ else
 game()*/
 
 const buttons = document.querySelectorAll("button");
+const outcome = document.querySelector(".outcome");
 
 buttons.forEach(button => {
     button.addEventListener("click", ()=>{
-        console.log(round(button.textContent));
+        outcome.textContent = round(button.textContent)
     })
 });
+
+
+
 
