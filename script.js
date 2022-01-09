@@ -21,7 +21,7 @@ function computerPlay()
 }
 
 
-function round(playerSelection)
+function roundPlay(playerSelection)
 {
     let computerSelection = computerPlay();
     //let playerSelection = prompt("Select Rock, Paper or Scissors","");
@@ -103,11 +103,46 @@ else
 game()*/
 
 const buttons = document.querySelectorAll("button");
-const outcome = document.querySelector(".outcome");
+const round = document.querySelector(".round");
+const playerScoreText = document.querySelector(".score > .player");
+const computerScoreText = document.querySelector(".score > .computer");
+const winner = document.querySelector(".winner");
+
+let playerScore = 0;
+let computerScore = 0;
+let outcome;
 
 buttons.forEach(button => {
     button.addEventListener("click", ()=>{
-        outcome.textContent = round(button.textContent)
+        outcome = roundPlay(button.textContent);
+        round.textContent = outcome;
+
+        if (outcome.includes("win"))
+        {
+            playerScore++;
+            playerScoreText.textContent = playerScore;
+        }
+        else if (outcome.includes("lose"))
+        {
+            computerScore++;
+            computerScoreText.textContent = computerScore;
+        }
+
+        if (playerScore >= 5)
+        {
+            winner.textContent = `***You won this game! ${playerScore}-${computerScore}***`
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
+        }
+        if (computerScore >= 5)
+        {
+            winner.textContent = `***You lost this game! ${playerScore}-${computerScore}***`
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
+        }
+    
     })
 });
 
