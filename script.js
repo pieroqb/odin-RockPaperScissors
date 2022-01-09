@@ -117,6 +117,14 @@ buttons.forEach(button => {
         outcome = roundPlay(button.textContent);
         round.textContent = outcome;
 
+        //Highlighting pressed button
+        buttons.forEach(button => {
+            button.classList.remove("last-selected")
+        });
+
+        button.classList.add("last-selected")
+
+        // Increasing winner's score
         if (outcome.includes("win"))
         {
             playerScore++;
@@ -128,19 +136,22 @@ buttons.forEach(button => {
             computerScoreText.textContent = computerScore;
         }
 
+        // Checking if win condition is met
         if (playerScore >= 5)
         {
-            winner.textContent = `***You won this game! ${playerScore}-${computerScore}***`
+            winner.textContent = `*** You won this game! ${playerScore}-${computerScore} ***`
             buttons.forEach(button => {
                 button.disabled = true;
             });
+            button.classList.remove("last-selected")
         }
         if (computerScore >= 5)
         {
-            winner.textContent = `***You lost this game! ${playerScore}-${computerScore}***`
+            winner.textContent = `*** You lost this game! ${playerScore}-${computerScore} ***`
             buttons.forEach(button => {
                 button.disabled = true;
             });
+            button.classList.remove("last-selected")
         }
     
     })

@@ -1,0 +1,47 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+body {
+    background-color: lightblue;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header, section {
+    text-align: center;
+    padding: 16px;
+}
+
+header {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+button {
+    min-width: 96px;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.last-selected {
+    border-color: tomato;
+}
+
+.scores-section {
+    font-size: 18px;
+}
+
+.round-section {
+    font-size: 20px;
+}
+
+.winner-section {
+    font-size: 24px;
+}
